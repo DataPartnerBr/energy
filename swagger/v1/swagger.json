@@ -1,0 +1,221 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/posts": {
+      "post": {
+        "summary": "Creates a post",
+        "tags": [
+          "Posts"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "post",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "sub_title": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "user_id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "title",
+                "sub_title",
+                "body",
+                "active",
+                "user_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Post created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    },
+    "/api/v1/posts/{id}": {
+      "get": {
+        "summary": "Retrieves a post",
+        "tags": [
+          "Posts"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Post found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "sub_title": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "user_id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "title",
+                "sub_title",
+                "body",
+                "active",
+                "user_id"
+              ]
+            }
+          },
+          "404": {
+            "description": "Post not found"
+          }
+        }
+      }
+    },
+    "/api/v1/todos": {
+      "post": {
+        "summary": "Creates a to do",
+        "tags": [
+          "Todos"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "todo",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "order": {
+                  "type": "integer"
+                },
+                "user_id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "title",
+                "body",
+                "completed",
+                "order",
+                "user_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "To Do created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    },
+    "/api/v1/todos/{id}": {
+      "get": {
+        "summary": "Retrieves a To Do",
+        "tags": [
+          "Todos"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "To Do found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "order": {
+                  "type": "integer"
+                },
+                "user_id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "title",
+                "body",
+                "completed",
+                "order",
+                "user_id"
+              ]
+            }
+          },
+          "404": {
+            "description": "To Do not found"
+          }
+        }
+      }
+    }
+  }
+}

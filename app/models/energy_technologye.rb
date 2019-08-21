@@ -1,0 +1,2 @@
+class EnergyTechnologye < ApplicationRecord
+end
